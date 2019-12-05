@@ -1,26 +1,37 @@
 export class Person {
+    private id: string;
     private name: string;
     private surname: string;
     private age: number;
     private dni: string;
     private dateOfBirth: Date;
     private favouriteColor: string;
-    private sex: string;
+    private gender: string;
     private notes: string;
 
 
-    constructor(name: string, surname: string, age: number, dni: string, dateOfBirth: Date, favouriteColor: string, sex: string, notes: string) {
+    constructor(id: string, name: string, surname: string, age: number, dni: string, dateOfBirth: Date,
+                favouriteColor: string, gender: string, notes: string) {
 
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.dni = dni;
         this.dateOfBirth = dateOfBirth;
         this.favouriteColor = favouriteColor;
-        this.sex = sex;
+        this.gender = gender;
         this.notes = notes;
     }
 
+
+    public getId(): string {
+        return this.id;
+    }
+
+    public setId(id: string) {
+        return this.id = id;
+    }
 
     public getName(): string {
         return this.name;
@@ -70,12 +81,12 @@ export class Person {
         return this.favouriteColor = favouriteColor;
     }
 
-    public getSex(): string {
-        return this.sex;
+    public getGender(): string {
+        return this.gender;
     }
 
-    public setSex(sex: string): string {
-        return this.sex = sex;
+    public setGender(gender: string): string {
+        return this.gender = gender;
     }
 
     public getNotes(): string {
@@ -87,9 +98,9 @@ export class Person {
     }
 
     public printPersonData(): string {
-        return `${this.getName()} ${this.getSurname()}. 
-         Fecha de nacimiento: ${this.getDateOfBirth().toLocaleDateString("es")}, edad: ${this.getAge()}.
-         DNI: ${this.getDni()}, sexo: ${this.getSex()}, color favorito:  ${this.getFavouriteColor()}.
+        return `${this.getName()} ${this.getSurname()}.
+         Fecha de nacimiento: ${this.getDateOfBirth().toLocaleDateString('es')}, edad: ${this.getAge()}.
+         DNI: ${this.getDni()}, sexo: ${this.getGender()}, color favorito:  ${this.getFavouriteColor()}.
          Notas: ${this.getNotes()}`;
     }
 }
