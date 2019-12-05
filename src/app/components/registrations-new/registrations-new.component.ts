@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonService } from 'src/app/services/person.service';
 
 @Component({
   selector: 'app-registrations-new',
@@ -6,10 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registrations-new.component.css']
 })
 export class RegistrationsNewComponent implements OnInit {
+  private name: string;
+  private surname: string;
+  private age: number;
+  private dni: string;
+  private dateOfBirth: Date;
+  private favouriteColor: string;
+  private gender: string;
+  private notes: string;
 
-  constructor() { }
+
+  constructor(private personService: PersonService) { }
+
 
   ngOnInit() {
+    this.name = null;
+    this.surname = null;
+    this.age = null;
+    this.dni = null;
+    this.dateOfBirth = null;
+    this.favouriteColor = null;
+    this.gender = null;
+    this.notes = null;
   }
 
+  registerContact() {
+    this.personService.addContact(null, this.name, this.surname, this.age, this.dni, this.dateOfBirth,
+      this.favouriteColor, this.gender, this.notes);
+  }
 }
