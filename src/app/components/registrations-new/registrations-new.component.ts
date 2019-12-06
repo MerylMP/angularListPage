@@ -37,7 +37,7 @@ export class RegistrationsNewComponent implements OnInit {
   }
 
   registerContact() {
-    this.personService.addContact(null, this.name, this.surname, this.age, this.dni, this.dateOfBirth,
+    this.personService.addContact(this.name, this.surname, this.age, this.dni, this.dateOfBirth,
       this.favouriteColor, this.gender, this.notes);
 
     this.router.navigateByUrl('contactsList');

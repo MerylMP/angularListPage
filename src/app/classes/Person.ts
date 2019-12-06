@@ -1,5 +1,4 @@
 export class Person {
-    private id: string;
     private name: string;
     private surname: string;
     private age: number;
@@ -10,10 +9,9 @@ export class Person {
     private notes: string;
 
 
-    constructor(id: string, name: string, surname: string, age: number, dni: string, dateOfBirth: Date,
+    constructor(name: string, surname: string, age: number, dni: string, dateOfBirth: Date,
                 favouriteColor: string, gender: string, notes: string) {
 
-        this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -24,14 +22,6 @@ export class Person {
         this.notes = notes;
     }
 
-
-    public getId(): string {
-        return this.id;
-    }
-
-    public setId(id: string) {
-        return this.id = id;
-    }
 
     public getName(): string {
         return this.name;

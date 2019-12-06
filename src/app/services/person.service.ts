@@ -10,21 +10,25 @@ export class PersonService {
 
   constructor() {
     this.registrationsList = [];
+
+    const fakePerson = new Person('nombre', 'apellido apellido', 34, '12345678e', new Date('December 17, 1995 03:24:00'),
+     'azul', 'Mujer', 'notas');
+
+    this.registrationsList.push(fakePerson);
   }
 
   // Add  a contact
-  public addContact(id: string, name: string, surname: string, age: number, dni: string,
+  public addContact(name: string, surname: string, age: number, dni: string,
                     dateOfBirth: Date, favouriteColor: string, gender: string, notes: string) {
-    const contactPerson = new Person(id, name, surname, age, dni, dateOfBirth,
+    const contactPerson = new Person(name, surname, age, dni, dateOfBirth,
       favouriteColor, gender, notes);
     this.registrationsList.push(contactPerson);
-    console.log('resultado', this.registrationsList);
   }
 
 
   // Get a contact or all the coctacts
-  public getContact(dni: string): Person {
-    return this.registrationsList[dni];
+  public getContact(id: number): Person {
+    return this.registrationsList[id];
   }
 
   public getRegistrationsList(): Person[] {
@@ -33,13 +37,13 @@ export class PersonService {
 
 
   // Update a contact
-  public updateContacts(dni: string | number, contactPerson: Person) {
-    this.registrationsList[dni] = contactPerson;
+  public updateContacts(id: number, contactPerson: Person) {
+    this.registrationsList[id] = contactPerson;
   }
 
 
   // Delete a contact
-  public deleteContact(dni: number) {
-    this.registrationsList.splice(dni, 1);
+  public deleteContact(id: number) {
+    this.registrationsList.splice(id, 1);
   }
 }
