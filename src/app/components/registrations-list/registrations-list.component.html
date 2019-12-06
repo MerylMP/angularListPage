@@ -1,7 +1,12 @@
-<div class="title-group">
+<div class="title">
     <h1 class="mat-h1">Contactos</h1>
 </div>
 
+<div>
+    <button mat-raised-button color="primary" [routerLink]="['/newRegistration']">Añadir contacto</button>
+</div>
+<br>
+<br>
 
 <mat-card [hidden]="!dataSource.data.length >= 0">
     <mat-card-title>Registro</mat-card-title>
@@ -55,7 +60,7 @@
                 <td mat-cell *matCellDef="let contact"> {{contact.notes}} </td>
             </ng-container>
             <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef>Acción</th>
+                <th mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let contact; let i = index">
                     <button mat-raised-button color="primary">Editar</button>
                     <button mat-raised-button color="accent" (click)="deleteStudent(i, element)">Borrar</button>
@@ -65,5 +70,4 @@
             <tr mat-row *matRowDef="let contactRowData; columns: columnsToDisplay"></tr>
         </table>
     </mat-card-content>
-
 </mat-card>
