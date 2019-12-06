@@ -1,1 +1,74 @@
-<p>registrations-edit works!</p>
+<form (ngSubmit)="updateChanges()" #myForm="ngForm">
+        <mat-card>
+            <mat-card-title>Modificar registro</mat-card-title>
+            <mat-card-content>
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="" [(ngModel)]="contactRegistration.name" id="name" name="name" type="text" minlength="3"
+                            pattern="[a-zA-Z ]*" required>
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput placeholder="" [(ngModel)]="contactRegistration.surname" id="surname" name="surname" type="text"
+                            minlength="3" pattern="[a-zA-Z ]*" required>
+                    </mat-form-field>
+                </div>
+    
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-label>Edad</mat-label>
+                        <input matInput placeholder="" [(ngModel)]="contactRegistration.age" id="age" name="age" type="number" min="0" max="125"
+                            required>
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                        <mat-label>DNI</mat-label>
+                        <input matInput placeholder="" [(ngModel)]="contactRegistration.dni" id="dni" name="dni" type="text"
+                            pattern="[0-9A-Za-z]{9}" required>
+                    </mat-form-field>
+                </div>
+    
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-label>Cumpleaños</mat-label>
+                        <input matInput readonly [matDatepicker]="picker" [(ngModel)]="contactRegistration.dateOfBirth" id="dateOfBirth"
+                            name="dateOfBirth" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+    
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-label>Sexo</mat-label>
+                        <mat-select [(value)]="contactRegistration.gender" required>
+                            <mat-option value="Hombre">Hombre</mat-option>
+                            <mat-option value="Mujer">Mujer</mat-option>
+                            <mat-option value="Otro">Otro</mat-option>
+                            <mat-option value="No especificado">No especificado</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+    
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-label>Color favorito</mat-label>
+                        <input matInput placeholder="" [(ngModel)]="contactRegistration.favouriteColor" id="favouriteColor"
+                            name="favouriteColor" type="text" minlength="3" pattern="[a-zA-Z ]*" required>
+                    </mat-form-field>
+                </div>
+    
+                <div class="form-group">
+                    <mat-form-field>
+                        <mat-label>Notas</mat-label>
+                        <input matInput placeholder="" [(ngModel)]="contactRegistration.notes" id="notes" name="notes" type="text">
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" [disabled]="myForm.form.invalid" type="submit">Modificar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
