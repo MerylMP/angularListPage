@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PersonService } from 'src/app/services/person.service';
+import { MatTableDataSource, MatSort } from '@angular/material';
+import { Person } from 'src/app/classes/Person';
+
 
 @Component({
   selector: 'app-registrations-list',
   templateUrl: './registrations-list.component.html',
   styleUrls: ['./registrations-list.component.css']
+
 })
+
 export class RegistrationsListComponent implements OnInit {
 
-  constructor() { }
+  dataSource = new MatTableDataSource<Person>([]);
+  // columnsToDisplay: string[] = ['id', 'name', 'surname', 'dni', 'genre', 'age', 'dateOfBirth', 'favouriteColor', 'notes', 'action'];
+  columnsToDisplay: string[] = ['name', 'surname', 'dni', 'gender', 'age', 'dateOfBirth', 'favouriteColor', 'notes', 'action'];
+
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  constructor(private personService: PersonService) { }
+
 
   ngOnInit() {
+    this.dataSource.data = this.personService.getRegistrationsList();
+    this.dataSource.sort = this.sort;
   }
+
+
+  // TODO función eliminar como ejemplo
 
 }
