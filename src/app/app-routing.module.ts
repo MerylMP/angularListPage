@@ -8,7 +8,7 @@ import { RegistrationsEditComponent } from './components/registrations-edit/regi
 const routes: Routes = [
   { path: 'contactsList', component: RegistrationsListComponent },
   { path: 'newRegistration', component: RegistrationsNewComponent },
-  { path: 'editContact/:id', component: RegistrationsEditComponent},
+  { path: 'editContact/:position', component: RegistrationsEditComponent},
   { path: '', redirectTo: '/contactsList', pathMatch: 'full' }
 ];
 

@@ -26,8 +26,8 @@ export class PersonService {
   }
 
 
-  // Get a contact or all the coctacts
-  public getContact(id: number): Person {
+  // Get a contact or all the contacts
+  public getContact(id: string): Person {
     return this.registrationsList[id];
   }
 
@@ -37,7 +37,7 @@ export class PersonService {
 
 
   // Update a contact
-  public updateContacts(id: number, contactPerson: Person) {
+  public updateContacts(id: string, contactPerson: Person) {
     this.registrationsList[id] = contactPerson;
   }
 
