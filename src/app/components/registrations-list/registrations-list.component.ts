@@ -14,10 +14,9 @@ import { Person } from 'src/app/classes/Person';
 export class RegistrationsListComponent implements OnInit {
 
   dataSource = new MatTableDataSource<Person>([]);
-  // columnsToDisplay: string[] = ['id', 'name', 'surname', 'dni', 'genre', 'age', 'dateOfBirth', 'favouriteColor', 'notes', 'action'];
   columnsToDisplay: string[] = ['name', 'surname', 'dni', 'gender', 'age', 'dateOfBirth', 'favouriteColor', 'notes', 'action'];
 
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private personService: PersonService) { }
 
@@ -28,6 +27,10 @@ export class RegistrationsListComponent implements OnInit {
   }
 
 
-  // TODO función eliminar como ejemplo
-
+  deleteContact(index, e) {
+    if (window.confirm('Se borrará el registro. ¿Desea continuar?')) {
+      this.personService.deleteContact(index);
+      this.dataSource.data = this.personService.getRegistrationsList();
+    }
+  }
 }
