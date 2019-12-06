@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from 'src/app/services/person.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrations-new',
   templateUrl: './registrations-new.component.html',
   styleUrls: ['./registrations-new.component.css']
 })
+
 export class RegistrationsNewComponent implements OnInit {
   private name: string;
   private surname: string;
@@ -16,8 +18,11 @@ export class RegistrationsNewComponent implements OnInit {
   private gender: string;
   private notes: string;
 
-
-  constructor(private personService: PersonService) { }
+  
+  constructor(
+    private personService: PersonService,
+    private router: Router
+  ) { }
 
 
   ngOnInit() {
@@ -34,5 +39,7 @@ export class RegistrationsNewComponent implements OnInit {
   registerContact() {
     this.personService.addContact(null, this.name, this.surname, this.age, this.dni, this.dateOfBirth,
       this.favouriteColor, this.gender, this.notes);
+
+    this.router.navigateByUrl('contactsList');
   }
 }
