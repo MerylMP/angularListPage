@@ -18,7 +18,7 @@ export class RegistrationsNewComponent implements OnInit {
   private gender: string;
   private notes: string;
 
-  
+
   constructor(
     private personService: PersonService,
     private router: Router
@@ -32,7 +32,7 @@ export class RegistrationsNewComponent implements OnInit {
     this.dni = null;
     this.dateOfBirth = null;
     this.favouriteColor = null;
-    this.gender = null;
+    this.gender = 'No especificado';
     this.notes = null;
   }
 

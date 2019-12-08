@@ -10,11 +10,6 @@ export class PersonService {
 
   constructor() {
     this.registrationsList = [];
-
-    const fakePerson = new Person('nombre', 'apellido apellido', 34, '12345678e', new Date('December 17, 1995 03:24:00'),
-     'azul', 'Mujer', 'notas');
-
-    this.registrationsList.push(fakePerson);
   }
 
   // Add  a contact
